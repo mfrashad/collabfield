@@ -114,6 +114,7 @@ GEM
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
     public_suffix (3.0.2)
+    puma (3.10.0)
     rack (1.6.10)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -231,6 +232,7 @@ DEPENDENCIES
   jquery-rails
   pg (~> 0.15)
   poltergeist
+  puma
   rails (= 4.2.8)
   rails-controller-testing
   rspec-rails (~> 3.6)

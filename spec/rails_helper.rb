@@ -41,6 +41,8 @@ RSpec.configure do |config|
   # Additional Config
   config.include Devise::Test::IntegrationHelpers, type: :feature
   config.include FactoryGirl::Syntax::Methods
+  Capybara.javascript_driver = :poltergeist
+  Capybara.server = :puma 
 
 
   # Database Cleaner configuration
