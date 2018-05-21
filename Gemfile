@@ -35,6 +35,7 @@ gem 'headless'
 gem 'capybara'
 gem 'poltergeist'
 gem 'database_cleaner'
+gem 'faker'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
