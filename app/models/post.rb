@@ -3,7 +3,7 @@ class Post < ActiveRecord::Base
   belongs_to :category
   
   default_scope -> { includes(:user).order(created_at: :desc) }
-  scope :by_category, ->(branch, category_name) do 
+  scope :by_category, ->(branch, category_name) do
     joins(:category).where(categories: { name: category_name, branch: branch })
   end
   scope :by_branch, ->(branch) do
