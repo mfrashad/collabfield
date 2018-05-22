@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 
+
 # Specs in this file have access to a helper object that includes
 # the PostsHelper. For example:
 #
@@ -12,6 +13,7 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe PostsHelper, type: :helper do
+  include Rails.application.routes.url_helpers
   context '#create_new_post_partial_path' do
     it 'returns a signed_in_partial_path' do
       helper.stub(:user_signed_in?).and_return(true)
@@ -44,17 +46,18 @@ RSpec.describe PostsHelper, type: :helper do
     end
   end
 
-  context '#no_post_partial_path' do
+  context '#no_posts_partial_path' do
+    let(:posts) { [] }
     it 'returns no_post partial path' do
-      assign(:posts, [])
-      expect(helper.no_posts_partial_path).to eq (
-        'posts/branch/no_posts'
+      posts
+      expect(helper.no_posts_partial_path(posts)).to eq (
+        'posts/shared/no_posts'
       )
     end
 
     it 'returns empty_partial' do
-      assign(:posts, [1])
-      expect(helper.no_posts_partial_path).to eq (
+      posts = [1]
+      expect(helper.no_posts_partial_path(posts)).to eq (
         'shared/empty_partial'
       )
     end
