@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'pages#index'
   devise_for :users, :controllers => { :registrations => 'registrations' }
   devise_scope :user do
     get 'login', to: 'devise/sessions#new'
@@ -11,7 +12,6 @@ Rails.application.routes.draw do
       get 'team'
     end
   end
-  root 'pages#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

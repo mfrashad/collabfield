@@ -44,6 +44,8 @@ RSpec.configure do |config|
   Capybara.javascript_driver = :poltergeist
   Capybara.server = :puma 
 
+  config.include Rails.application.routes.url_helpers
+
 
   # Database Cleaner configuration
   config.before(:suite) do
@@ -65,6 +67,7 @@ RSpec.configure do |config|
   config.before(:each) do
     DatabaseCleaner.clean
   end
+  
 
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
