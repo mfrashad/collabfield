@@ -1,3 +1,4 @@
+
 class PostsController < ApplicationController
   before_action :redirect_if_not_signed_in, only: [:new]
 
@@ -48,12 +49,10 @@ class PostsController < ApplicationController
   end
 
   def get_posts
-    def get_posts
-      PostsForBranchService.new({
-        search: params[:search],
-        category: params[:category],
-        branch: params[:action]
-      }).call
-    end
+    PostsForBranchService.new({
+      search: params[:search],
+      category: params[:category],
+      branch: params[:action]
+    }).call
   end
 end
