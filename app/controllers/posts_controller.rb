@@ -11,6 +11,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save 
+      PostMailer.new_post(@post).deliver_later
       redirect_to post_path(@post)
     else
       redirect_to root_path

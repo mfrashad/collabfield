@@ -3,11 +3,12 @@ require './app/services/posts_for_branch_service.rb'
 require 'database_cleaner'
 
 describe PostsForBranchService do
-  DatabaseCleaner.clean_with :truncation
-  DatabaseCleaner.strategy = :transaction
+  
   context '#call' do
-    before(:each) { DatabaseCleaner.start }
-    after(:each) { DatabaseCleaner.clean }
+    # DatabaseCleaner.clean_with :truncation
+    # DatabaseCleaner.strategy = :transaction
+    # before(:each) { DatabaseCleaner.start }
+    # after(:each) { DatabaseCleaner.clean }
     let(:not_included_posts) { create_list(:post, 2) }
     let(:category) { create(:category, branch: 'hobby', name: 'arts') }
     let(:post) do
