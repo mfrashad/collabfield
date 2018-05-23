@@ -39,7 +39,6 @@ RSpec.describe Post, type: :model do
     end
 
     it 'search finds a matching post' do
-      byebug
       post = create(:post, title: 'awesome title', content: 'great content ' * 5)
       create_list(:post, 10, title: ('a'..'c' * 2).to_a.shuffle.join)
       expect(Post.search('awesome').count).to eq 1
